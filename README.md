@@ -49,9 +49,8 @@ $ git clone https://github.com/jfri3d/dummy
 $ garden test
 Running tests 🌡️
 
-✔ providers                 → Preparing environment... → Cached
+✔ providers                 → Preparing environment... → Done
    ✔ kubernetes                → Configuring... → Ready
-✔ a                         → int tests → Already passed
 ✔ b                         → int tests → Already passed
 
 Done! ✔️

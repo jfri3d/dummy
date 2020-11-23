@@ -5,7 +5,8 @@ environments:
 defaultEnvironment: dev
 modules:
   include:
-    - "containers/*"
+    - "helm/*"
+#    - "containers/*"
 providers:
   - name: kubernetes
     context: ${var.CONTEXT}
