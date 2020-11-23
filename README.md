@@ -56,4 +56,7 @@ Running tests 🌡️
 Done! ✔️
 ```
 
+No issues - correctly implemented.
+
 ### Test dependent on Helm Service
+Same approach as above - correctly implemented.
