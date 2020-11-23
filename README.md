@@ -1,4 +1,4 @@
-## dummy
+## garden-test
 > Simple repo for testing Garden to identify when tests are not cached!
 
 ## Steps
