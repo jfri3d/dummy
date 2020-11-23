@@ -15,3 +15,6 @@ providers:
       - dev
 dotIgnoreFiles:
   - .gardenignore
+sources:
+  - name: garden-remote-sources
+    repositoryUrl: https://github.com/jfri3d/garden-remote-sources.git#master

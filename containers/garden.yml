@@ -1,15 +1,5 @@
 kind: Module
 type: container
-name: a
-exclude:
-  - '*'
-image: alpine:latest
-services:
-  - name: a
-    command: ["/bin/sh", "-c", "sleep 600"]
----
-kind: Module
-type: container
 name: b
 exclude:
   - '*'
