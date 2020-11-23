@@ -3,6 +3,9 @@ name: dummy
 environments:
   - name: dev
 defaultEnvironment: dev
+modules:
+  include:
+    - "containers/*"
 providers:
   - name: kubernetes
     context: ${var.CONTEXT}
@@ -12,33 +15,3 @@ providers:
       - dev
 dotIgnoreFiles:
   - .gardenignore
----
-kind: Module
-type: container
-name: a
-exclude:
-  - '*'
-image: alpine:latest
-tests:
-  - name: int
-    command: ["/bin/sh","-c"]
-    args: ['echo "a"']
----
-kind: Module
-type: container
-name: b
-exclude:
-  - '*'
-build:
-  dependencies:
-    - name: a
-image: alpine:latest
-services:
-  - name: a
-    command: ["/bin/sh", "-c", "sleep 600"]
-tests:
-  - name: int
-    dependencies:
-      - a
-    command: ["/bin/sh","-c"]
-    args: ['echo "b"']

@@ -1,0 +1,23 @@
+kind: Module
+type: helm
+name: c
+repo: https://charts.bitnami.com/bitnami
+chart: postgresql
+exclude:
+  - '*'
+---
+kind: Module
+type: container
+name: d
+exclude:
+  - '*'
+build:
+  dependencies:
+    - name: c
+image: alpine:latest
+tests:
+  - name: int
+    dependencies:
+      - a
+    command: ["/bin/sh","-c"]
+    args: ['echo "b"']

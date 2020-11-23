@@ -1,7 +1,9 @@
 ## dummy
-> Simple repo for testing Garden
+> Simple repo for testing Garden to identify when tests are not cached!
 
 ## Steps
+
+### Test dependent on Container Service
 
 - set kubernetes context in `garden.env` (see `garden.env.template`)
 ```
@@ -20,12 +22,11 @@ Running tests 🌡️
 
 ✔ providers                 → Preparing environment... → Done
    ✔ kubernetes                → Configuring... → Ready
-✔ a                         → Getting build status for v-6242b56891... → Done (took 0 sec)
-✔ b                         → Getting build status for v-abe48b9951... → Done (took 0 sec)
-✔ a                         → Running int tests → Success (took 2.6 sec)
-✔ a                         → Deploying version v-abe48b9951... → Done (took 4.3 sec)
+✔ a                         → Getting build status for v-3494aa6c2f... → Done (took 0 sec)
+✔ b                         → Getting build status for v-6556684743... → Done (took 0 sec)
+✔ a                         → Deploying version v-3494aa6c2f... → Done (took 4.4 sec)
    ℹ a                         → Resources ready
-✔ b                         → Running int tests → Success (took 2.8 sec)
+✔ b                         → Running int tests → Success (took 3 sec)
 
 Done! ✔️
 ```
@@ -38,9 +39,22 @@ Running tests 🌡️
 ✔ providers                 → Getting status... → Cached
    ℹ Run with --force-refresh to force a refresh of provider statuses.
 ✔ b                         → int tests → Already passed
-✔ a                         → int tests → Already passed
 
 Done! ✔️
 ```
 
-- 
+- run tests with a "clean" clone
+```
+$ git clone https://github.com/jfri3d/dummy
+$ garden test
+Running tests 🌡️
+
+✔ providers                 → Preparing environment... → Cached
+   ✔ kubernetes                → Configuring... → Ready
+✔ a                         → int tests → Already passed
+✔ b                         → int tests → Already passed
+
+Done! ✔️
+```
+
+### Test dependent on Helm Service
