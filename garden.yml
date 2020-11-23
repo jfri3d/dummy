@@ -4,8 +4,8 @@ environments:
   - name: dev
 defaultEnvironment: dev
 modules:
-  include:
-    - "containers/*"
+  exclude:
+    - "helm/*"
 providers:
   - name: kubernetes
     context: ${var.CONTEXT}
@@ -16,5 +16,5 @@ providers:
 dotIgnoreFiles:
   - .gardenignore
 sources:
-  - name: garden-remote-sources
-    repositoryUrl: https://github.com/jfri3d/garden-remote-sources.git#master
+  - name: test
+    repositoryUrl: git@github.com:jfri3d/garden-remote-source.git#master
